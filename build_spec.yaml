@@ -8,10 +8,15 @@ shell: bash
 
 steps:
   - type: Command
+    name: "Check Python"
+    command: |
+      python3 --version
+
+  - type: Command
     name: "Install dependencies"
     command: |
-      pip install --upgrade pip
-      pip install pandas matplotlib yfinance
+      python3 -m pip install --upgrade pip
+      python3 -m pip install --no-cache-dir pandas matplotlib yfinance
 
   - type: Command
     name: "Run script"
