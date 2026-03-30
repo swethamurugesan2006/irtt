@@ -26,7 +26,13 @@ steps:
       echo "Running stock analysis script..."
       python P1.py
 
+  - type: Command
+    name: "Prepare output"
+    command: |
+      mkdir -p output
+      echo "Build completed" > output/result.txt
+
 outputArtifacts:
   - name: output
     type: BINARY
-    location: .
+    location: output
