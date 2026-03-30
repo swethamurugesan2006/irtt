@@ -8,29 +8,16 @@ shell: bash
 
 steps:
   - type: Command
-    name: "Check files"
-    command: |
-      echo "Listing files in repo..."
-      ls -l
-
-  - type: Command
     name: "Install dependencies"
     command: |
-      echo "Installing Python dependencies..."
       pip install --upgrade pip
       pip install pandas matplotlib yfinance
 
   - type: Command
-    name: "Run Python Script"
-    command: |
-      echo "Running stock analysis script..."
-      python P1.py
-
-  - type: Command
-    name: "Prepare output"
+    name: "Run script"
     command: |
       mkdir -p output
-      echo "Build completed" > output/result.txt
+      python3 P1.py
 
 outputArtifacts:
   - name: output
