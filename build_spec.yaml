@@ -1,30 +1,21 @@
-version: 0.1
+version: 0.2
 
-component: build
+phases:
+  install:
+    runtime-versions:
+      python: 3.11
+    commands:
+      - echo Installing dependencies...
+      - python3 -m pip install --upgrade pip
+      - python3 -m pip install --no-cache-dir pandas matplotlib yfinance
 
-timeoutInSeconds: 600
+  build:
+    commands:
+      - echo Running Python script...
+      - mkdir -p output
+      - python3 P1.py
 
-shell: bash
-
-steps:
-  - type: Command
-    name: "Check Python"
-    command: |
-      python3 --version
-
-  - type: Command
-    name: "Install dependencies"
-    command: |
-      python3 -m pip install --upgrade pip
-      python3 -m pip install --no-cache-dir pandas matplotlib yfinance
-
-  - type: Command
-    name: "Run script"
-    command: |
-      mkdir -p output
-      python3 P1.py
-
-outputArtifacts:
-  - name: output
-    type: BINARY
-    location: output
+artifacts:
+  files:
+    - '**/*'
+  base-directory: output
