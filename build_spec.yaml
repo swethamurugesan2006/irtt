@@ -5,11 +5,19 @@ steps:
   - type: Command
     name: Build Step
     command: |
+      echo "Current directory:"
+      pwd
+
+      echo "Listing files before:"
+      ls -l
+
       mkdir -p output
       echo "Hello" > output/test.txt
+
+      echo "Listing output folder:"
       ls -l output
 
 outputArtifacts:
   - name: output
     type: BINARY
-    location: output
+    location: /workspace/output
