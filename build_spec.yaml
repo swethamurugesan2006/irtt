@@ -17,8 +17,10 @@ steps:
     name: "Build Step"
     command: |
       echo "Build running successfully"
+      mkdir -p output
+      echo "Sample file" > output/result.txt
 
 outputArtifacts:
   - name: output
     type: BINARY
-    location: .
+    location: output/
