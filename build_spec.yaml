@@ -8,23 +8,17 @@ shell: bash
 
 steps:
   - type: Command
-    name: "Check files"
+    name: Check files
     command: |
       echo "Listing files..."
       ls -l
 
   - type: Command
-    name: "Build Step"
+    name: Build Step
     command: |
       echo "Build running successfully"
-
-      # Create output folder
       mkdir -p output
-
-      # Add file (VERY IMPORTANT)
       echo "Hello Swetha" > output/result.txt
-
-      # Verify
       ls -l output
 
 outputArtifacts:
