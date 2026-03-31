@@ -17,10 +17,17 @@ steps:
     name: "Build Step"
     command: |
       echo "Build running successfully"
+
+      # Create output folder
       mkdir -p output
-      echo "Sample file" > output/result.txt
+
+      # Add file (VERY IMPORTANT)
+      echo "Hello Swetha" > output/result.txt
+
+      # Verify
+      ls -l output
 
 outputArtifacts:
   - name: output
     type: BINARY
-    location: output/
+    location: output
